@@ -1,0 +1,9 @@
+# Documento di analisi
+## Registro delle spese giornaliere
+Il progetto consiste nel realizzare un applicativo che consenta di tenere traccia delle spese effettuata dall'utente, in modo che l'utente stesso possa effettuare una gestione migliore delle proprie finanze o per altri fini.  
+
+## Vista dinamica
+1. L'Utente inserisce la **spesa**
+2. L'Utente inserisce la **categoria** della spesa effettuata
+3. L'Utente inserisce la **descrizione**
+4. 
