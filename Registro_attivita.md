@@ -8,5 +8,8 @@ Completato lo schizzo dell'interfaccia, inserendo una nuova tabella che mostra i
 ## 19 Maggio 2017 (1.75h)
 Inserito un ulteriore button "eliminaSpesa" nella tabella "ultimeSpese" del mockup in modo da rendere possibile l'eliminazione di una spesa registrata erroneamente. Quando questo button viene premuto si elimina il record nella tabella e si aggiornano le due tabelle ed il diagramma presente nell'applicativo. Modificata di conseguenza la vista dinamica. Concluse le specifiche delle altre parti Java di I/O, descrivendo anche la struttura della tabelle della base di dati da utilizzare.
 
-## 24 Maggio 2017 (0.59h + 0.68h)
+## 24 Maggio 2017 (0.59h)
+Eliminata la Tabella "spesaPerCategoria" (il diagramma ha lo stesso scopo della tabella). Inseriti due campi data di fianco il diagramma in modo da poter selezionare un periodo di riferimento per la creazione del diagramma stesso. Eliminati i "eliminaSpesa" dalla tabella "ultimeSpese" e sostituito con un button in fondo alla tabella che elimina i record selezionati. Eliminata la Struttura delle Tabelle nella vista dinamica. Inserito un nuovo evento, invio del log alla selezione di una riga.
+
+## 24 Maggio 2017 (0.68h)
 Eliminati i termini camelCase dal Documento di Analisi e sostituiti con italiano per una maggiore leggibilità. Modificata la vista dinamica scomponendo due casi d'uso diversi (inserimento ed eliminazione record). Inserito un button Aggiorna che, se premuto, aggiorna il diagramma a torta. Inserito il caso d'uso riferito al button Aggiorna. Eliminata la spiegazione di cosa fa il database nella vista dinamica.
