@@ -14,5 +14,5 @@ Eliminata la Tabella "spesaPerCategoria" (il diagramma ha lo stesso scopo della 
 ## 24 Maggio 2017 (0.68h)
 Eliminati i termini camelCase dal Documento di Analisi e sostituiti con italiano per una maggiore leggibilità. Modificata la vista dinamica scomponendo due casi d'uso diversi (inserimento ed eliminazione record). Inserito un button Aggiorna che, se premuto, aggiorna il diagramma a torta. Inserito il caso d'uso riferito al button Aggiorna. Eliminata la spiegazione di cosa fa il database nella vista dinamica.
 
-## 03 Giugno 2017
-Ripasso sulla costruzione dei diagrammi UML (https://tinyurl.com/UMLprg)
+## 03 Giugno 2017 - 7 luglio 2017
+Creazione della documentazione relativa alla prima fase di analisi. Ripasso sulla costruzione dei diagrammi UML (https://tinyurl.com/UMLprg). Creato primo diagramma UML(https://creately.com/), inserite le classi: Spesa (classe bean), Categoria (enumerato che contiene le varie categorie della spesa), GestoreSpesa (gestisce le spese inserite dall'utente, quindi ha metodi annullaInserimento e salvaSpesa).
