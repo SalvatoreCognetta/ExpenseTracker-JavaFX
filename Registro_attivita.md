@@ -1,4 +1,4 @@
-# Registro attività (Tot 6.22h)
+# Registro attività (Tot 10.49h)
 ## 2 Aprile 2017 (1.08h)
 Creato un primo schizzo dell'applicativo tramite tool online (https://creately.com/), inserendo: text-box per l'immissione dei vari campi, una tabella che mostra gli ultimi record inseriti e un diagramma a ciambella che mostra le spese effettuate mensilmente raggruppate per categoria. Abbozzato il documento di analisi che illustra lo scopo e gli scenari tipici dell'interfaccia.
 
@@ -14,5 +14,12 @@ Eliminata la Tabella "spesaPerCategoria" (il diagramma ha lo stesso scopo della 
 ## 24 Maggio 2017 (0.68h)
 Eliminati i termini camelCase dal Documento di Analisi e sostituiti con italiano per una maggiore leggibilità. Modificata la vista dinamica scomponendo due casi d'uso diversi (inserimento ed eliminazione record). Inserito un button Aggiorna che, se premuto, aggiorna il diagramma a torta. Inserito il caso d'uso riferito al button Aggiorna. Eliminata la spiegazione di cosa fa il database nella vista dinamica.
 
-## 03 Giugno 2017 - 7 luglio 2017
+## 03 Giugno 2017 - 7 luglio 2017 (1.24)
 Creazione della documentazione relativa alla prima fase di analisi. Ripasso sulla costruzione dei diagrammi UML (https://tinyurl.com/UMLprg). Creato primo diagramma UML(https://creately.com/), inserite le classi: Spesa (classe bean), Categoria (enumerato che contiene le varie categorie della spesa), GestoreSpesa (gestisce le spese inserite dall'utente, quindi ha metodi annullaInserimento e salvaSpesa).
+
+## 09 Luglio 2017 (0.56)
+Rinominata la classe GestoreSpesa in  NuovaSpesa. Creazione della classe TabellaUltimeSpese, che si riferisce alla tabella che contiene tutte le ultime spese effettuate e che utilizza la classe bean Spesa. Creata la classe DataBaseSpese, che ha lo scopo di estrarre dalla base di dati le spese salvate, e di inserire ed eliminare nello stesso una spesa ogni volta che viene premuto il tasto "salva" nella classe NuovaSpesa o il button "elimina" nella Tabella.
+
+## 10 Luglio 2017 (2.47)
+Inserita una nuova classe bean, StoricoSpese, utilizzata come parametri del diagramma a torta. Inserito metodo nella classe DatabaseSpese per la restituzione di una lista di StoricoSpese, utilizzata dal diagramma. Inseriti metodi nella classe TabellaUltimeSpese per l'aggiornamento ed il caricamento all'avvio delle spese. Creata la classe RegistroPerCategoria che raggruppa in un grafico, aggiornato con il metodo aggiornaGrafico, le spese per categoria.
+Aggiunta classe ParametriConfigurazione che contiene i parametri di configurazione locale in XML, con relativi metodi set e get. Inserita classe GestoreParametriConfigurazioneXML che legge e valida il file di configurazione e restituisce il parametri.
