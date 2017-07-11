@@ -42,7 +42,7 @@ Alla chiusura l'applicativo salva su file binario tutti i parametri inseriti. Al
 
 ## Base di dati
 Il sistema archivia le seguenti informazioni su base di dati:  
-- Tipologie di categorie di spese tra cui l'utente può scegliere;
+- Tipologie di categorie di spese tra cui l'utente può scegliere;  
 - Inserimento di una nuova spesa effettuata.      
 
 All'avvio dell'applicativo, il Sistema legge dalla Base di Dati:  
@@ -56,4 +56,5 @@ Il Sistema invia un log per i seguenti eventi:
 3. Quando l'Utente preme il pulsante "Annulla" per svuotare tutti i campi inseriti;  
 4. Quando l'Utente preme il pulsante "Elimina" per eliminare un record precedentemente inserito;  
 5. Quando l'Utente seleziona una riga della tabella "Ultime Spese";  
-6. Termine dell'applicazione.  
+6. Quando l'Utente preme il pulsante "Aggiorna" per aggiornare il grafico;
+7. Termine dell'applicazione.  
