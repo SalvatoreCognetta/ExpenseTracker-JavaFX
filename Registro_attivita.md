@@ -30,3 +30,6 @@ Dopo aver visualizzato meglio il codice riguardante la ComboBox, della classe Nu
 
 ## 13 Luglio 2017 (1.37)
 Inserite le classi da importare e modificato alcune dipende d'uso tra le classi del diagramma. Modificati i parametri dei costruttori delle classi NuovaSpesa e TabellaUltimeSpese. Ridefinita la classe CacheSpesaNonSalvata, che salva su file binario i parametri inseriti nell'applicativo. Ridisposte la classi nel diagramma per una maggiore visibilità e facilità di lettura.
+
+## 14 Luglio 2017 
+Aggiunto nel diagramma l'implement dell'interfaccia Serializable da parte di CacheSpesaNonSalvata e ServerDiLog. Aggiunto come attributo la classe CacheSpesaNonSalvata nella classe principale ConsultazioneSpese. Modificato il nome della classe ServerDiLog con LogXMLAttivita. Creato il documento di progetto, in cui ho dettagliato le responsabilità di tutte le classi inserite nell'architettura. Aggiornata quindi la documentazione, aggiungendo la parte relativa alla progettazione.

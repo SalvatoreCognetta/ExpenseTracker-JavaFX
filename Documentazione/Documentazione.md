@@ -1,9 +1,9 @@
-#1 Introduzione
+# 1 Introduzione
 L'applicativo sviluppato, per l'esame di Programmazione Java, è un software di gestione della propria contabilità, che permette all'utente di monitorare le spese effettuate, in modo da tenere traccia delle proprie finanze e delle proprie uscite, per poi effettuare un'analisi del mese trascorso. È possibile sia visualizzare le ultime spese effettuate, all'interno di una tabella, sia un diagramma a torta che sintetizza le spese effettutate in un dato periodo, inserito dall'utente, raggruppate per categoria.  
 
-#2 Analisi
+# 2 Analisi
 ## Client GUI
-![](./registroSpeseGiornaliere.png)
+![](../1-Analisi/registroSpeseGiornaliere.png)
 
 ## Vista dinamica
 Inserimento di una Spesa  
@@ -57,3 +57,54 @@ Il Sistema invia un log per i seguenti eventi:
 4. Quando l'Utente preme il pulsante "Elimina" per eliminare un record precedentemente inserito;  
 5. Quando l'Utente seleziona una riga della tabella "Ultime Spese";  
 6. Termine dell'applicazione.  
+
+
+# 3 Progetto
+## Registro delle spese giornaliere
+Le classi dell'applicativo, visualizzabili graficamente nel diagramma UML, sono le seguenti:
+
+### Classe Spesa 
+Contiene le informazioni di ciascuna spesa inserita dall'utente.  
+Ultilizzata dalla classe **DataBaseSpese** per ottenere la lista di spese effettuate dall'utente.
+
+### Classe StoricoSpese
+Contiene le informazioni delle spese inserite dall'utente, raggruppate per categoria.  
+Ultilizzata dalla classe **DataBaseSpese** per ottenere la lista di spese per categoria, necessaria per la generazione del grafico.
+
+### Classe DataBaseSpese
+Esegue tutte le query sulla Base di Dati.
+
+### Classe NuovaSpesa
+Contiene la GUI relativa all'inserimento di una nuova spesa.
+
+### Classe TabellaUltimeSpese
+Contiene la GUI relativa alla visualizzazione delle spese effettuate e l'eliminazione di una o più di esse.
+
+### Classe RegistroPerCategoria
+Contiene il diagramma delle spese effettuate raggruppate per categoria da una certa data ad un'altra.
+
+### Classe ParametriConfigurazione
+Contiene i parametri di configurazione letti dal file di configurazione .xml locale dalla classe GestoreParametriConfigurazioneXML.  
+Serializzata/Deserializzata tramite XMLStream.
+
+### Classe GestoreParametriConfigurazioneXML
+Legge i parametri di configurazione.  
+Valida i parametri tramite XML Schema.
+
+### Classe LogXMLAttivita
+Gestisce il Socket di comunicazione con il Server di Log.
+Serializzata tramite XStream.  
+Validazione mediante XML Schema.  
+Inviata alla classe ServerLogXMLAttivita.
+
+
+### Classe CacheSpesaNonSalvata
+Implementa Serializable.  
+Si occupa di salvare e prelevare da file binario locale l'ultima spesa inserita dall'utente ma non salvata.
+
+### Classe ConsultazioneSpese
+Classe principale che aggiunge le tre parti dell'applicativo alla Scene, in modo da visualizzare la GUI completa in un'unica VBox.
+
+# Diagramma UML
+![](../2-Progettazione/RegistroSpese.jpg)
+
