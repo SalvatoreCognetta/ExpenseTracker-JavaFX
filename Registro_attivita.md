@@ -1,4 +1,4 @@
-# Registro attività (Tot 14.99h)
+# Registro attività (Tot 24.33h)
 ## 2 Aprile 2017 (1.08h)
 Creato un primo schizzo dell'applicativo tramite tool online (https://creately.com/), inserendo: text-box per l'immissione dei vari campi, una tabella che mostra gli ultimi record inseriti e un diagramma a ciambella che mostra le spese effettuate mensilmente raggruppate per categoria. Abbozzato il documento di analisi che illustra lo scopo e gli scenari tipici dell'interfaccia.
 
@@ -31,5 +31,15 @@ Dopo aver visualizzato meglio il codice riguardante la ComboBox, della classe Nu
 ## 13 Luglio 2017 (1.37)
 Inserite le classi da importare e modificato alcune dipende d'uso tra le classi del diagramma. Modificati i parametri dei costruttori delle classi NuovaSpesa e TabellaUltimeSpese. Ridefinita la classe CacheSpesaNonSalvata, che salva su file binario i parametri inseriti nell'applicativo. Ridisposte la classi nel diagramma per una maggiore visibilità e facilità di lettura.
 
-## 14 Luglio 2017 
+## 14 Luglio 2017 (1.15)
 Aggiunto nel diagramma l'implement dell'interfaccia Serializable da parte di CacheSpesaNonSalvata e ServerDiLog. Aggiunto come attributo la classe CacheSpesaNonSalvata nella classe principale ConsultazioneSpese. Modificato il nome della classe ServerDiLog con LogXMLAttivita. Creato il documento di progetto, in cui ho dettagliato le responsabilità di tutte le classi inserite nell'architettura. Aggiornata quindi la documentazione, aggiungendo la parte relativa alla progettazione.
+
+## 18 Luglio 2017 (2.43)
+Ultimata la prima iterazione del diagramma UML in seguito alla correzzione di alcuni package da importare nelle classi TabellaUltimeSpese, RegistroPerCategoria e LogXMLAttivita. Aggiornato, di conseguenza, il documento di progetto e la documentazione. Provati frammenti di codice per il datePicker(https://tinyurl.com/y89jdpyk, https://tinyurl.com/yadd5g42), comboBox(https://tinyurl.com/ycbadxls) per capire l'implementazione nell'applicativo dei componenti non studiati a lezione. 
+
+## 19 Luglio 2017 (2.68)
+Passato alla fase di sviluppo, sviluppando le classi per il front-end Spesa, StoricoSpese, TabellaUltimeSpese, ConsultazioneSpese e per il back-end DataBaseSpese. Visto il codice per ottenere una riga selezionata da una TableView ed effettuate delle modifiche al diagramma UML: modificato il valore di ritorno del metodo getData, nella classe Spesa, da Data a String; aggiunto all'interno della classe DataBaseSpese un ulteriore attributo, il PreparedStatement per le spese raggruppate per categoria
+## 19 Luglio 2017 (3.06)
+Eliminato l'attributo "spesa" dal metodo eliminaSpesa, poichè la spesa selezionata viene selezionata dentro il metodo stesso(table.getSelectionModel().getSelectedItem();). Aggiunto i parametro IDSpesa, ed il relativo metodo get, nella classe Spesa per le operazioni di eliminazione nel db. Nella classe DataBaseSpese eliminati gli attributi indirizzoIP e portaDatabase, inserito invece come attributo la stringa "url", che contiene del db a cui connettersi.
+
+Creata la base di dati RegistroSpese che contiene le tabelle spesa e categoria. Aggiunta la classe front-end NuovaSpesa. Utilizzato un placeholder per i textfield (https://tinyurl.com/prmptext). Creati tutti i metodi della classe NuovaSpesa. Aggiunto il metodo ottieniCategorie nella classe DabaseSpese, che restituisce le categorie da visualizzare nella combobox. Eliminato il parametro List<Spesa> dal metodo caricaSpese, viene calcolata direttamente nella classe. 
