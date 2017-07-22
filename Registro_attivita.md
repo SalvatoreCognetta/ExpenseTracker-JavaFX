@@ -1,4 +1,4 @@
-# Registro attività (Tot 25.96h)
+# Registro attività (Tot 34.03h)
 ## 2 Aprile 2017 (1.08h)
 Creato un primo schizzo dell'applicativo tramite tool online (https://creately.com/), inserendo: text-box per l'immissione dei vari campi, una tabella che mostra gli ultimi record inseriti e un diagramma a ciambella che mostra le spese effettuate mensilmente raggruppate per categoria. Abbozzato il documento di analisi che illustra lo scopo e gli scenari tipici dell'interfaccia.
 
@@ -44,3 +44,12 @@ Creata la base di dati RegistroSpese che contiene le tabelle spesa e categoria. 
 
 ## 20 Luglio 2017 (1.63)
 Nel metodo salvaSpesa della classe NuovaSpesa invece di inviare la data della spesa sotto forma di stringa la invio come LocalDate; modificato di conseguenza il metodo aggiungiSpesa della classe DataBaseSpese, ora ha come parametro un LocalDate che viene convertito java.sql.Date.valueOf(data); modificata quindi la base di dati, ora le date non sono VARCHAR ma DATE, in modo da poter effettuare delle operazioni sulle date (come le spese effettuate in un certo periodo, utili per la classe RegistroPerCategoria). La classe bean spesa non viene modificata, poichè la data è comunque convertita a String.
+
+## 21 Luglio 2017 (3.54h)
+Nella classe RegistroPerCategoria aggiunto il metodo aggiornaGrafico(), che viene lanciato all'avvio e ogni volta che si preme il button "Aggiorna". Inserito, nel metodo, il caso in cui non fosse presente nessun record (d.add(new PieChart.Data("Nessun valore", 1));). Creata la classe CacheSpesaNonSalvata ed i metodi prelevaSpesaNonSalvata e memorizzaSpesaNonSalvata. Modificata il costruttore della classe NuovaSpesa in modo da inizializzare i campi presenti con i dati salvati nel file binario. 
+
+## 22 Luglio 2017 (3.00h)
+Nella classe NuovaSpesa aggiunta anche l'inizializzazione del datePicker tramite cache locale. Il datePicker ora invece che avere un valore di defualt ha un promptText (era un errore perchè in chiusura veniva salvato sempre la data dell'ultima apertura anche senza nessun inserimento). Creata le classi ParametriConfigurazione e GestoreParametriConfigurazioneXML, che valida e restituisce i parametri di configurazione. Creati il costruttore e i metodi che validano il file e settano i parametri. 
+
+## 22 Luglio 2017 (1.53h)
+Aggiunti metodi get nella classe ParametriConfigurazione. Implementato il gestoreParametriConfigurazione nella costruttore della classe DatabaseSpese (viene stabilita la connessione al db tramite i parametri di config). Creato il costruttore della classe LogXMLAttivita. Create anche la classe MessaggioDiLog e l'enumerato TipoLog, usati dal metodo inviaMessaggioLog. Creati i metodi inviaMessaggioLog e serilizzaXML della classe LogXML per l'invio al server del messaggio di log serializzato.

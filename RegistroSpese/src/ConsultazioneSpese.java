@@ -16,20 +16,26 @@ public class ConsultazioneSpese extends Application {
     private CacheSpesaNonSalvata cache;
         
     public void start(Stage stage) {
-        File f = new File("./test.bin");
+        ParametriConfigurazione p = new ParametriConfigurazione("localhost", 8080, "localhost", "RegistroSpese", 3306, "root", "", "pt", "font", 0, 0);
+        GestoreParametriConfigurazioneXML g = new GestoreParametriConfigurazioneXML("test.txt", "test.xsd");
+        g.setParametri(p);
         
-        dataBase = new DataBaseSpese("localhost", "3306", "RegistroSpese");
-        serverDiLog = new LogXMLAttivita();
+        File f = new File("./cache.bin");
+        
+        dataBase = new DataBaseSpese(g);
+        serverDiLog = new LogXMLAttivita(g);
         cache = new CacheSpesaNonSalvata(f);
         tabellaSpese = new TabellaUltimeSpese(dataBase, serverDiLog, 10);
         nuovaSpesa = new NuovaSpesa(dataBase, serverDiLog,tabellaSpese, cache);
         registroCategoria = new RegistroPerCategoria(dataBase, serverDiLog);
         
+      
         
         tabellaSpese.caricaSpese();
         registroCategoria.aggiornaGrafico();
         
-        stage.setOnCloseRequest((WindowEvent we) -> {cache.memorizzaSpesaNonSalvata(nuovaSpesa.getCosto());});
+        stage.setOnCloseRequest((WindowEvent we) -> {cache.memorizzaSpesaNonSalvata(nuovaSpesa.getSpesa());
+                                                    serverDiLog.inviaMessaggioLogEvento(TipoLog.TERMINE_APPLICAZIONE);});
 //stage.setOnCloseRequest((WindowEvent we) ­> {cache.memorizzaSpesaNonSalvata(nuovaSpesa.getSpesa());});
         
         VBox vb = new VBox(nuovaSpesa.getVBox(), tabellaSpese.getVBox(), registroCategoria.getVbox());

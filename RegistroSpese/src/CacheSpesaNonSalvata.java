@@ -1,5 +1,6 @@
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,45 +16,35 @@ import java.util.logging.Logger;
  */
 public class CacheSpesaNonSalvata {
     
-    private FileOutputStream writerFile;
-    private ObjectOutputStream oout;
-    private FileInputStream readerFile;
-    private ObjectInputStream oin;
-    private File fileCacheSpesa;
+    private static File fileCacheSpesa;
+    
     
     public CacheSpesaNonSalvata(File f) {
         fileCacheSpesa = f;
-        try {
-            writerFile = new FileOutputStream(fileCacheSpesa);
-            oout = new ObjectOutputStream(writerFile);
-            readerFile = new FileInputStream(fileCacheSpesa);
-            oin = new ObjectInputStream(readerFile);
-        } catch (IOException e) {
-            System.err.println("Impossibile aprire il file");
-            e.printStackTrace();
-        }
     }
     
-    public void memorizzaSpesaNonSalvata(double spesa) {
-        try {
-            oout.writeDouble(spesa);
-            System.out.println("CacheSpesaNonSalvata.memorizzaSpesaNonSalvata()" + spesa);
+    public void memorizzaSpesaNonSalvata(String[] spesa) {
+        try(FileOutputStream writerFile = new FileOutputStream(fileCacheSpesa);
+            ObjectOutputStream oout = new ObjectOutputStream(writerFile);) {
+            for(int i = 0; i < spesa.length; i++)
+                oout.writeObject(spesa[i]);
         } catch (IOException ex) {
             System.err.println("Impossibile conservare la spesa!");
             ex.printStackTrace();
         }
     }
     
-    public double prelevaSpesaNonSalvata() {
-        double c = 0;
-        try {
-            System.out.println("CacheSpesaNonSalvata.prelevaSpesaNonSalvata()");            
-            c = (double)oin.readDouble();
-        } catch (IOException ex) {
+    public String[] prelevaSpesaNonSalvata() {
+        String[] s = new String[4];
+        try(FileInputStream readerFile = new FileInputStream(fileCacheSpesa);
+            ObjectInputStream oin = new ObjectInputStream(readerFile);) {
+            for(int i = 0; i < 4; i++)
+                s[i] = (String)oin.readObject();
+            System.out.println(s);
+        } catch (IOException | ClassNotFoundException ex) {
             System.err.println("Impossibile prelevare!");
-            ex.printStackTrace();
         }
-        return c;
+        return s;
     }
     
 }

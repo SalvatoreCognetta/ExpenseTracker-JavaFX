@@ -64,7 +64,7 @@ public class RegistroPerCategoria {
             d.add(new PieChart.Data("Nessun valore", 1));
         datiDiagramma.clear();
         datiDiagramma.addAll(d);
-        System.out.println(d);
+        System.out.println("RegistroPerCategoria.aggiornaGrafico"+d);
     }
     
     

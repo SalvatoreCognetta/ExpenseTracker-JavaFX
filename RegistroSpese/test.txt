@@ -1,0 +1,12 @@
+<ParametriConfigurazione>
+  <portaServerDiLog>8080</portaServerDiLog>
+  <indirizzoIPDatabase>localhost</indirizzoIPDatabase>
+  <portaDatabase>3306</portaDatabase>
+  <nomeDatabase>RegistroSpese</nomeDatabase>
+  <usernameDatabase>root</usernameDatabase>
+  <passwordDatabase></passwordDatabase>
+  <unita>pt</unita>
+  <font>font</font>
+  <dimensione>0</dimensione>
+  <maxRecord>0</maxRecord>
+</ParametriConfigurazione>

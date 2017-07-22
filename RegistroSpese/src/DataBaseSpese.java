@@ -19,10 +19,16 @@ public class DataBaseSpese {
     private static String passwordDatabase;
 
     
-    public DataBaseSpese (String indirizzoIP, String porta, String nomeDB) {
+    public DataBaseSpese (GestoreParametriConfigurazioneXML gestoreParam) {
+        ParametriConfigurazione p = gestoreParam.getParametri();
+        String indirizzoIP = p.getIndirizzoIpDb();
+        int porta = p.getPortaDb();
+        String nomeDB = p.getNomeDb();
+        usernameDatabase = p.getUsernameDb();
+        passwordDatabase = p.getPwdDb();
         url = "jdbc:mysql://"+indirizzoIP+":"+porta+"/"+nomeDB;
         try {
-            connessioneADatabase = DriverManager.getConnection(url, "root", "");
+            connessioneADatabase = DriverManager.getConnection(url, usernameDatabase, passwordDatabase);
             statementGetSpeseInserite = connessioneADatabase.prepareStatement("SELECT * FROM spesa");
             statementGetCategorie = connessioneADatabase.prepareStatement("SELECT nome FROM categoria");
             statementGetStorico = connessioneADatabase.prepareStatement("SELECT SUM(costo) as costo, categoria FROM spesa WHERE data>? AND data<? GROUP BY categoria");     

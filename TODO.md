@@ -16,6 +16,8 @@
 14. Modificare l'attributo "spesa" del metodo aggiungiSpesa nella classe DataBaseSpese con gli attributi double costo, String categoria, String descrizione, String data. OK
 15. Aggiunger import a NuovaSpesa: import java.time.format.*; OK
 
+
+
 16. Modificare il parametro String data in LocalDate data nel metodo aggiungiSpesa della classe DataBaseSpese.
 17. Modificare il parametro Data dataInizio e fine in LocalDate data nel metodo ottieniSpesePerData della classe DataBaseSpese.
 18. Modificare gli attributi della classe DataBaseSpese:
@@ -29,3 +31,21 @@
     private static String usernameDatabase;
     private static String passwordDatabase;
 19. Modificare il nome del metodo ottieniSpesePerData con ottieniStoricoSpese in DBSPESE
+
+20. Aggiungere le label "Data Inizio" e "Data Fine" nella classe registro per categoria.
+21. In DataBaseSpese, nel metodo ottieniSpesePerData invece restituire List<StoricoSpese> restituire List<PieChart.Data>. 
+22. Eliminare la classe StoricoSpese, inutile.
+23. Nella classe CacheSpesa non salvata bisogna passare nel costruttore il parametro File file. Inoltre aggiungere tra gli attributi della classe ObjectInputStream e ObjectOutputStream.
+24. La classe memorizzaSpesaNonSalvata(...) deve avere come parametro String[] spesa.
+25. Aggiungere l'attributo CacheSpesaNonSalvata nella classe NuovaSpesa, per memorizzare e leggere l'ultima spesa inserita.
+26. La classe CacheSpesaNonSalvata non va serializzata.
+27. Nella classe GestoreParametri importare javax.xml.*; e import javax.xml.parsers.*; import org.xml.sax.*; import javax.xml.validation.*; import org.w3c.dom.*; import javax.xml.transform.stream.*; import javax.xml.transform.dom.*; import java.nio.file.*;
+28. Nei parametriconfigurazione bisogna aggiungere la string nomedb, eliminare String colreBackground
+29. La classe ParametriConfigurazione implementa Serializable.
+30. Eliminare i metodi set dalla classe ParametriConfigurazione.
+31. Nella classe LOGXMLAttivita modificata ObjectOutputStream con DataOutputStream.
+32. Modificare la classe MessaggioDiLog, deve contetnere anch l'indirizzo ip del client.
+34. Nella classe LogXMLAttivita aggiunger import com.thoughtworks.xstream.*;
+35. 
+
+

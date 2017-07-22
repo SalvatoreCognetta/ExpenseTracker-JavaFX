@@ -5,6 +5,7 @@ import javafx.collections.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.event.*;
+import javafx.util.converter.LocalDateStringConverter;
 
 /**
  * NuovaSpesa: 
@@ -34,24 +35,34 @@ public class NuovaSpesa {
         this.tb = tb;
         this.cache = cache;
         
+        String[] spesa = cache.prelevaSpesaNonSalvata();
         titolo = new Label("Inserisci una nuova spesa");
         
         costoSpesa = new TextField();
         costoSpesa.setPromptText("0.00€");
-        double test = cache.prelevaSpesaNonSalvata();
-        if(!Double.isNaN(test)) 
-            costoSpesa.setText(String.valueOf(test));
+
+        if(spesa[0] != null)
+            costoSpesa.setText(spesa[0]);
         
+
         opzioniComboBox = FXCollections.observableArrayList();
         opzioniComboBox.addAll(db.ottieniCategorie());
         categoriaSpesa = new ComboBox(opzioniComboBox);
         categoriaSpesa.setPromptText("Categoria");
+        if(spesa[1] != null)
+            categoriaSpesa.setValue(spesa[1]);
+
         
         descrizioneSpesa = new TextField();
         descrizioneSpesa.setPromptText("Descrizione");
+        if(spesa[2] != null)
+            descrizioneSpesa.setText(spesa[2]);
         
         dataSpesa = new DatePicker();
-        dataSpesa.setValue(LocalDate.now());
+        if(spesa[3] == null)
+            dataSpesa.setPromptText(LocalDate.now().toString());
+        else
+            dataSpesa.setValue(LocalDate.parse(spesa[3]));
         
         hboxInserimento = new HBox();
         //inserire lo spacing tra i children dell'hbox
@@ -64,7 +75,7 @@ public class NuovaSpesa {
         btnSalva = new Button("Salva");
         btnSalva.setStyle("-fx-color:blue");
         btnSalva.setOnAction((ActionEvent ev) -> {salvaSpesa();});
-        System.out.println(dataSpesa.getValue());
+        System.out.println("NuovaSpesa.init"+dataSpesa.getValue());
         
         hboxBtn = new HBox();
         hboxBtn.getChildren().addAll(btnAnnulla, btnSalva);
@@ -96,16 +107,16 @@ public class NuovaSpesa {
         return vboxprincipale;
     }
     
-    public Spesa getSpesa() {
-        double costo = Double.parseDouble(costoSpesa.getText());
-        String categoria = (String)categoriaSpesa.getValue();
-        String descrizione = descrizioneSpesa.getText();
-        String data = dataSpesa.toString();
-        
-        return new Spesa(0, costo, categoria, descrizione, data);
+    public String[] getSpesa() {
+        String[] l = new String[]{ 
+            costoSpesa.getText(),
+            categoriaSpesa.getValue() == null ? null : categoriaSpesa.getValue().toString(),
+            descrizioneSpesa.getText(),
+            dataSpesa.getValue()== null ? null : dataSpesa.getValue().toString()
+        };
+        for(int i = 0; i < 4; i++)
+            System.out.println("NuovaSpesa.getSpesa()"+l[i]);
+        return l;
     }
     
-    public double getCosto() {
-        return Double.parseDouble(costoSpesa.getText());
-    }
 }
