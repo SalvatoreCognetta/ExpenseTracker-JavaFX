@@ -26,7 +26,7 @@ CREATE TABLE `categoria` (
   `idcategoria` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`idcategoria`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +35,7 @@ CREATE TABLE `categoria` (
 
 LOCK TABLES `categoria` WRITE;
 /*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
-INSERT INTO `categoria` VALUES (1,'Bollette'),(2,'Divertimento');
+INSERT INTO `categoria` VALUES (1,'Bollette'),(2,'Divertimento'),(3,'Bevande'),(4,'Sport');
 /*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,9 +51,9 @@ CREATE TABLE `spesa` (
   `costo` double DEFAULT NULL,
   `categoria` varchar(45) DEFAULT NULL,
   `descrizione` varchar(45) DEFAULT NULL,
-  `data` varchar(45) DEFAULT NULL,
+  `data` date DEFAULT NULL,
   PRIMARY KEY (`idspesa`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +62,7 @@ CREATE TABLE `spesa` (
 
 LOCK TABLES `spesa` WRITE;
 /*!40000 ALTER TABLE `spesa` DISABLE KEYS */;
-INSERT INTO `spesa` VALUES (17,11.65,'Bollette','eee','2017-07-20'),(18,55,'Bollette','a','20 Luglio 2017'),(19,123,'Bollette','abc','20 Luglio 2017');
+INSERT INTO `spesa` VALUES (17,11.65,'Bollette','eee','2017-07-20'),(33,36.8,'Bollette','aaa','2017-07-24'),(34,22.75,'Bevande','qwerty','2017-07-11'),(35,234,'Sport','asd','2013-07-05'),(37,12,'Divertimento','tyu','2017-07-24'),(38,25,'Divertimento','aa','2017-07-06'),(40,11,'Divertimento','aaa','2018-07-07'),(41,22.36,'Bollette','asd','2017-07-06');
 /*!40000 ALTER TABLE `spesa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,4 +79,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-07-20  1:02:57
+-- Dump completed on 2017-07-25  1:54:03
