@@ -3,7 +3,7 @@
 Il progetto consiste nel realizzare un applicativo che consenta di tenere traccia delle spese effettuata dall'utente, in modo che l'utente stesso possa effettuare una gestione migliore delle proprie finanze o per altri fini.  
 
 ## Client GUI
-![](./registroSpeseGiornaliere.png)
+![](./RegistroSpeseGiornaliere.png)
 
 ## Vista dinamica
 Inserimento di una Spesa  
@@ -32,8 +32,8 @@ Modifica periodo diagramma a torta
 ## File di configurazioni locale in XML
 All'avvio il Sistema legge dal file di configurazione locale:  
 1. Indirizzo e porta del Server di log a cui connettersi;  
-2. L'indirizzo, la porta, il nome utente e la password da utilizzare per accedere al Database.  
-3. Font, dimensione, colore del background;   
+2. L'indirizzo, la porta, il nome del database, il nome utente e la password da utilizzare per accedere al Database.  
+3. Font, dimensione;   
 4. Il numero di record massimo che devono apparire nella tabella Ultime Spese.
 
 
@@ -56,5 +56,5 @@ Il Sistema invia un log per i seguenti eventi:
 3. Quando l'Utente preme il pulsante "Annulla" per svuotare tutti i campi inseriti;  
 4. Quando l'Utente preme il pulsante "Elimina" per eliminare un record precedentemente inserito;  
 5. Quando l'Utente seleziona una riga della tabella "Ultime Spese";  
-6. Quando l'Utente preme il pulsante "Aggiorna" per aggiornare il grafico;
+6. Quando l'Utente preme il pulsante "Aggiorna" per aggiornare il grafico;  
 7. Termine dell'applicazione.  

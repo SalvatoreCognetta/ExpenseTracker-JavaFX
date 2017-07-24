@@ -1,4 +1,4 @@
-# Registro attività (Tot 38.71h)
+# Registro attività (Tot 41.62h)
 ## 2 Aprile 2017 (1.08h)
 Creato un primo schizzo dell'applicativo tramite tool online (https://creately.com/), inserendo: text-box per l'immissione dei vari campi, una tabella che mostra gli ultimi record inseriti e un diagramma a ciambella che mostra le spese effettuate mensilmente raggruppate per categoria. Abbozzato il documento di analisi che illustra lo scopo e gli scenari tipici dell'interfaccia.
 
@@ -59,3 +59,9 @@ Modificato il metodo annullaInserimento della classe nuovaSpesa, ora si ripulisc
 
 ## 24 Luglio 2017 (3.03h)
 Settato il bordo, spacing, colore e font per le classi NuovaSpesa,TabellaUltimeSpese,RegistroPerCategoria. Settato il numero di righe visibili nella tabella modificando la query(LIMIT numRow); impostata la dimensione max e min(in caso non ci siano elementi) della tabella. Le righe della tabella ora appaiono in apertura ordinate secondo la data.Tolta la possibilità di ridimensionare lo stage.Creato il file di validazione xsd per il file di configurazione. Testato l'applicativo sui casi stabiliti
+
+## 24 Luglio 2017 (2.91h)
+Analisi: eliminato il colore di background dal file di configurazione; spostate le label dataInizio e dataFine nel mockup. Progettazione: modificato da String a LocalDate il tipo del parametro data nel metodo aggiungiSpesa di DatabaseSpese, ed anche il parametro data in ottieniSpesaPerData da Data a LocalDate; aggiunti tra gli attributi gli statement per ottenere le spese inserite, categorie, storico spese, aggiungi ed elimina spesa. Aggiunte label data inzio e data fine a RegistroPerCategoria.
+
+## 24 Luglio 2017
+Eliminata la classe StoricoSpesa. Aggiunta la classe ServerLogXMLAttivita. Aggiornata la documentazione con le nuove classi. Sviluppo: creazione della classe ServerLogXMLAttivita con il metodo validaRigaDiLog, che effettua la validazione tramite file xsd.
