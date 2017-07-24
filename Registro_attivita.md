@@ -1,4 +1,4 @@
-# Registro attività (Tot 34.03h)
+# Registro attività (Tot 38.71h)
 ## 2 Aprile 2017 (1.08h)
 Creato un primo schizzo dell'applicativo tramite tool online (https://creately.com/), inserendo: text-box per l'immissione dei vari campi, una tabella che mostra gli ultimi record inseriti e un diagramma a ciambella che mostra le spese effettuate mensilmente raggruppate per categoria. Abbozzato il documento di analisi che illustra lo scopo e gli scenari tipici dell'interfaccia.
 
@@ -53,3 +53,9 @@ Nella classe NuovaSpesa aggiunta anche l'inizializzazione del datePicker tramite
 
 ## 22 Luglio 2017 (1.53h)
 Aggiunti metodi get nella classe ParametriConfigurazione. Implementato il gestoreParametriConfigurazione nella costruttore della classe DatabaseSpese (viene stabilita la connessione al db tramite i parametri di config). Creato il costruttore della classe LogXMLAttivita. Create anche la classe MessaggioDiLog e l'enumerato TipoLog, usati dal metodo inviaMessaggioLog. Creati i metodi inviaMessaggioLog e serilizzaXML della classe LogXML per l'invio al server del messaggio di log serializzato.
+
+## 23 Luglio 2017 (1.66h)
+Modificato il metodo annullaInserimento della classe nuovaSpesa, ora si ripuliscono anche i campi categoria e data. Aggiunti tutti i casi in cui l'applicativo deve inviare un messaggio di log (avvio, click sulla gui, termine). Modificato il metodo salvaSpesa di NuovaSpesa, se non ci sono i parametri inseriti la spesa non viene salvata, se manca la data in automatico la spesa è riferita a now(). Impostata la posizione dei button,label e datepicker. Aggiunto il bordo e lo spacing all'applicativo.
+
+## 24 Luglio 2017 (3.03h)
+Settato il bordo, spacing, colore e font per le classi NuovaSpesa,TabellaUltimeSpese,RegistroPerCategoria. Settato il numero di righe visibili nella tabella modificando la query(LIMIT numRow); impostata la dimensione max e min(in caso non ci siano elementi) della tabella. Le righe della tabella ora appaiono in apertura ordinate secondo la data.Tolta la possibilità di ridimensionare lo stage.Creato il file di validazione xsd per il file di configurazione. Testato l'applicativo sui casi stabiliti

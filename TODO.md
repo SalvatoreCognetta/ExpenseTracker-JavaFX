@@ -46,6 +46,12 @@
 31. Nella classe LOGXMLAttivita modificata ObjectOutputStream con DataOutputStream.
 32. Modificare la classe MessaggioDiLog, deve contetnere anch l'indirizzo ip del client.
 34. Nella classe LogXMLAttivita aggiunger import com.thoughtworks.xstream.*;
-35. 
-
+35. Aggiungere la classe Server che riceve le righe di log.
+36. Modificare gli attributi della classe LogXMLAtt, eliminare il Socket e il DataOutputStream.
+37. Modificare tutti i nomi da serverDiLog a socketDilog.
+39. Aggiungere il parametro ParametriConfigurazione nella classe NuovaSpesa e a TabellaUltimeSpese.
+41. Eliminare l'attributo maxRecord da TabUltimeSpese.
+42. In DataBaseSpese, nel costruttore non va passato il GestoreParam ma i Parametri
+43. Modificare la classe MessaggioDiLog, aggiungere nome applicazione, indirizzo-ip client, ora corrente.
+44. Eliminare la metodo leggiDaFile e il metodo validaFileDiCon ritorna void non boolean, nella classe GestoreParam.
 
