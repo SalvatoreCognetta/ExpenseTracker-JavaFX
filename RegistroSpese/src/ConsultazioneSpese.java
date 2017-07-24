@@ -1,9 +1,9 @@
 
-import java.io.File;
+import java.io.*;
 import javafx.application.*;
 import javafx.stage.*;
 import javafx.scene.*;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 
 
 public class ConsultazioneSpese extends Application {
@@ -12,22 +12,25 @@ public class ConsultazioneSpese extends Application {
     private TabellaUltimeSpese tabellaSpese;
     private RegistroPerCategoria registroCategoria;
     private DataBaseSpese dataBase;
-    private LogXMLAttivita serverDiLog;
+    private LogXMLAttivita socketDiLog;
     private CacheSpesaNonSalvata cache;
         
     public void start(Stage stage) {
-        ParametriConfigurazione p = new ParametriConfigurazione("localhost", 8080, "localhost", "RegistroSpese", 3306, "root", "", "pt", "font", 0, 0);
-        GestoreParametriConfigurazioneXML g = new GestoreParametriConfigurazioneXML("test.txt", "test.xsd");
+               
+        ParametriConfigurazione p = new ParametriConfigurazione(new ParametriServer("localhost", 8080), new ParametriDataBase("localhost", "RegistroSpese", 3306, "root", ""),
+                new ParametriStilistici("Times New Roman", new DimensioneFont(15, "pt"), 10));
+        GestoreParametriConfigurazioneXML g = new GestoreParametriConfigurazioneXML("./src/parametri.xml", "./src/parametri.xsd");
         g.setParametri(p);
         
-        File f = new File("./cache.bin");
+        File f = new File("./src/cache.bin");
         
-        dataBase = new DataBaseSpese(g);
-        serverDiLog = new LogXMLAttivita(g);
+        dataBase = new DataBaseSpese(g.getParametri());
+        socketDiLog = new LogXMLAttivita(g);
+        socketDiLog.inviaMessaggioLogEvento(TipoLog.AVVIO_APPLICAZIONE);
         cache = new CacheSpesaNonSalvata(f);
-        tabellaSpese = new TabellaUltimeSpese(dataBase, serverDiLog, 10);
-        nuovaSpesa = new NuovaSpesa(dataBase, serverDiLog,tabellaSpese, cache);
-        registroCategoria = new RegistroPerCategoria(dataBase, serverDiLog);
+        tabellaSpese = new TabellaUltimeSpese(dataBase, socketDiLog, g.getParametri());
+        nuovaSpesa = new NuovaSpesa(dataBase, socketDiLog,tabellaSpese, cache, g.getParametri());
+        registroCategoria = new RegistroPerCategoria(dataBase, socketDiLog, g.getParametri());
         
       
         
@@ -35,14 +38,18 @@ public class ConsultazioneSpese extends Application {
         registroCategoria.aggiornaGrafico();
         
         stage.setOnCloseRequest((WindowEvent we) -> {cache.memorizzaSpesaNonSalvata(nuovaSpesa.getSpesa());
-                                                    serverDiLog.inviaMessaggioLogEvento(TipoLog.TERMINE_APPLICAZIONE);});
-//stage.setOnCloseRequest((WindowEvent we) ­> {cache.memorizzaSpesaNonSalvata(nuovaSpesa.getSpesa());});
+                                                    socketDiLog.inviaMessaggioLogEvento(TipoLog.TERMINE_APPLICAZIONE);});
         
         VBox vb = new VBox(nuovaSpesa.getVBox(), tabellaSpese.getVBox(), registroCategoria.getVbox());
+        vb.setSpacing(20);
         
-        Scene scene = new Scene(new Group(vb));
+        Group root = new Group(vb);
+        
+        Scene scene = new Scene(root);
+        
         stage.setTitle("Registro Spese Giornaliero.");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 }

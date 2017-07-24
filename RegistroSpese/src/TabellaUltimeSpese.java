@@ -4,6 +4,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.cell.*;
 import javafx.event.*;
+import javafx.geometry.*;
 
 
 /**
@@ -14,25 +15,22 @@ import javafx.event.*;
 public class TabellaUltimeSpese {
 
     private DataBaseSpese dataBase;
-    private LogXMLAttivita serverDiLog;
+    private LogXMLAttivita socketDiLog;
+    private ParametriConfigurazione parametriConfig;
     private VBox vbox;
     private Label titolo;
     private TableView<Spesa> table;
     private ObservableList<Spesa> listaSpese;
-    private Button eliminaSpesa;
-    private int maxRecord;
+    private Button btnEliminaSpesa;
 
-    public TabellaUltimeSpese (DataBaseSpese db, LogXMLAttivita srvr, int maxRecord) {
-        dataBase = db;
-        serverDiLog = srvr;
-        this.maxRecord = maxRecord;
+    public TabellaUltimeSpese (DataBaseSpese db, LogXMLAttivita so, ParametriConfigurazione param) {
+        this.dataBase = db;
+        this.socketDiLog = so;
+        this.parametriConfig = param;
         
         titolo = new Label("UltimeSpese");
-        //aggiungere il set font
         table = new TableView<>();
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        table.setMinWidth(480);
-        //aggiungere il set del numero massimo di item visibili
         
         TableColumn descrizioneCol = new TableColumn("Descrizione Spesa");
         descrizioneCol.setCellValueFactory(new PropertyValueFactory<>("descrizione"));
@@ -50,13 +48,14 @@ public class TabellaUltimeSpese {
 
         table.setItems(listaSpese);
         table.getColumns().addAll(descrizioneCol, categoriaCol, costoCol, dataCol);
+        table.setOnMouseClicked((event) -> {socketDiLog.inviaMessaggioLogEvento(TipoLog.CLICK_TABELLA_ULTIME_SPESE);});
         
-        eliminaSpesa = new Button("Elimina");
-        //aggiungere allineamento
-        eliminaSpesa.setOnAction((ActionEvent ev) -> {eliminaSpesa();});
+        btnEliminaSpesa = new Button("Elimina");
+        btnEliminaSpesa.setOnAction((ActionEvent ev) -> {eliminaSpesa(); socketDiLog.inviaMessaggioLogEvento(TipoLog.CLICK_PULSANTE_ELIMINA);});
         
         vbox = new VBox();
-        vbox.getChildren().addAll(titolo, table, eliminaSpesa);
+        vbox.getChildren().addAll(titolo, table, btnEliminaSpesa);
+        setStyle();
     }
 
     public void caricaSpese() {
@@ -65,7 +64,7 @@ public class TabellaUltimeSpese {
         listaSpese.addAll(spese);
     }
     
-    public void eliminaSpesa() {
+    private void eliminaSpesa() {
         Spesa tmp = table.getSelectionModel().getSelectedItem();
         if (tmp == null)
             System.out.println("Nessuna spesa selezionata.");
@@ -79,6 +78,19 @@ public class TabellaUltimeSpese {
     
     public VBox getVBox() {
         return vbox;
+    }
+    
+    private void setStyle() {
+        String font = parametriConfig.getParametriStilistici().getFont();
+        String dimensione = String.valueOf(parametriConfig.getParametriStilistici().getDimensioneFont().getDimensione());
+        String unita = parametriConfig.getParametriStilistici().getDimensioneFont().getUnita();
+        titolo.setStyle("-fx-font-family: " + font + "; -fx-font-size: " + dimensione + unita);
+        vbox.setSpacing(10);
+        table.setMinHeight(150);
+        table.setMaxHeight(150);
+        btnEliminaSpesa.setStyle("-fx-color: #d13e3e");
+        vbox.setAlignment(Pos.CENTER);
+
     }
 
 

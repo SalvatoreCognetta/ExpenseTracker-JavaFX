@@ -5,8 +5,7 @@
   <nomeDatabase>RegistroSpese</nomeDatabase>
   <usernameDatabase>root</usernameDatabase>
   <passwordDatabase></passwordDatabase>
-  <unita>pt</unita>
-  <font>font</font>
-  <dimensione>0</dimensione>
-  <maxRecord>0</maxRecord>
+  <font>Times New Roman</font>
+  <dimensioneFont>15</dimensioneFont>
+  <maxRecord>10</maxRecord>
 </ParametriConfigurazione>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParametriConfigurazione>
+  <parametriServer>
+    <indirizzoIPServerDiLog>localhost</indirizzoIPServerDiLog>
+    <portaServerDiLog>8080</portaServerDiLog>
+  </parametriServer>
+  <parametriDatabase>
+    <indirizzoIPDatabase>localhost</indirizzoIPDatabase>
+    <portaDatabase>3306</portaDatabase>
+    <nomeDatabase>RegistroSpese</nomeDatabase>
+    <usernameDatabase>root</usernameDatabase>
+    <passwordDatabase></passwordDatabase>
+  </parametriDatabase>
+  <parametriStilistici>
+    <font>Times New Roman</font>
+    <dimensioneFont unita="pt">15</dimensioneFont>
+    <maxRecord>10</maxRecord>
+  </parametriStilistici>
+</ParametriConfigurazione>

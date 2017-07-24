@@ -1,11 +1,9 @@
-import java.time.LocalDate;
-import java.time.format.*;
-import java.util.*;
+import java.time.*;
 import javafx.collections.*;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.event.*;
-import javafx.util.converter.LocalDateStringConverter;
+import javafx.geometry.*;
 
 /**
  * NuovaSpesa: 
@@ -14,8 +12,9 @@ import javafx.util.converter.LocalDateStringConverter;
 public class NuovaSpesa {
     
     private DataBaseSpese dataBase;
-    private LogXMLAttivita serverDiLog;
+    private LogXMLAttivita socketDiLog;
     private CacheSpesaNonSalvata cache;
+    private ParametriConfigurazione parametriConfig;
     private TabellaUltimeSpese tb;
     private VBox vboxprincipale;
     private HBox hboxInserimento;
@@ -29,78 +28,86 @@ public class NuovaSpesa {
     private Button btnAnnulla;
     private Button btnSalva;
     
-    public NuovaSpesa(DataBaseSpese db, LogXMLAttivita srvr, TabellaUltimeSpese tb, CacheSpesaNonSalvata cache) {
+    public NuovaSpesa(DataBaseSpese db, LogXMLAttivita so, TabellaUltimeSpese tb, CacheSpesaNonSalvata cache, ParametriConfigurazione param) {
         this.dataBase = db;
-        this.serverDiLog = srvr;
+        this.socketDiLog = so;
         this.tb = tb;
         this.cache = cache;
-        
+        this.parametriConfig = param;
         String[] spesa = cache.prelevaSpesaNonSalvata();
         titolo = new Label("Inserisci una nuova spesa");
-        
         costoSpesa = new TextField();
         costoSpesa.setPromptText("0.00€");
-
         if(spesa[0] != null)
             costoSpesa.setText(spesa[0]);
         
-
         opzioniComboBox = FXCollections.observableArrayList();
         opzioniComboBox.addAll(db.ottieniCategorie());
         categoriaSpesa = new ComboBox(opzioniComboBox);
         categoriaSpesa.setPromptText("Categoria");
         if(spesa[1] != null)
             categoriaSpesa.setValue(spesa[1]);
-
-        
         descrizioneSpesa = new TextField();
         descrizioneSpesa.setPromptText("Descrizione");
         if(spesa[2] != null)
             descrizioneSpesa.setText(spesa[2]);
-        
         dataSpesa = new DatePicker();
         if(spesa[3] == null)
             dataSpesa.setPromptText(LocalDate.now().toString());
         else
             dataSpesa.setValue(LocalDate.parse(spesa[3]));
-        
         hboxInserimento = new HBox();
-        //inserire lo spacing tra i children dell'hbox
         hboxInserimento.getChildren().addAll(costoSpesa, categoriaSpesa, descrizioneSpesa, dataSpesa);
-        
         btnAnnulla = new Button("Annulla");
-        btnAnnulla.setStyle("-fx-color:red");
-        btnAnnulla.setOnAction((ActionEvent ev) -> {annullaInserimento();});
+        btnAnnulla.setOnAction((ActionEvent ev) -> {annullaInserimento(); socketDiLog.inviaMessaggioLogEvento(TipoLog.CLICK_PULSANTE_ANNULLA);});
         
         btnSalva = new Button("Salva");
-        btnSalva.setStyle("-fx-color:blue");
-        btnSalva.setOnAction((ActionEvent ev) -> {salvaSpesa();});
-        System.out.println("NuovaSpesa.init"+dataSpesa.getValue());
+        btnSalva.setOnAction((ActionEvent ev) -> {salvaSpesa(); socketDiLog.inviaMessaggioLogEvento(TipoLog.CLICK_PULSANTE_SALVA);});
         
         hboxBtn = new HBox();
         hboxBtn.getChildren().addAll(btnAnnulla, btnSalva);
-        
         vboxprincipale = new VBox();
         vboxprincipale.getChildren().addAll(titolo, hboxInserimento, hboxBtn);
+        setStyle();
     }
     
     private void annullaInserimento() {
         costoSpesa.setText("");
+        categoriaSpesa.setValue(null);
         descrizioneSpesa.setText("");
+        dataSpesa.setValue(null);
         System.out.println("Campi puliti.");
     }
     
     private void salvaSpesa() {
-        double costo = Double.parseDouble(costoSpesa.getText());
-        String categoria = (String)categoriaSpesa.getValue();
+        double costo;
+        String categoria;
+        LocalDate data;
+        
+        if(!costoSpesa.getText().isEmpty())
+            costo = Double.parseDouble(costoSpesa.getText());
+        else {
+            System.out.println("Impossibile salvare la spesa, manca il parametro costo.");
+            return;
+        }
+        
+        if(categoriaSpesa.getValue() != null)
+            categoria = categoriaSpesa.getValue().toString();
+        else {
+            System.out.println("Impossibile salvare la spesa, manca il parametro categoria.");
+            return;
+        }
+        
         String descrizione = descrizioneSpesa.getText();
-       
         
-        LocalDate data = dataSpesa.getValue();
-                
+        if(dataSpesa.getValue() != null)
+            data = dataSpesa.getValue();
+        else
+            data = LocalDate.now();
+        
         dataBase.aggiungiSpesa(costo, categoria, descrizione, data);
-        
         tb.caricaSpese();
+        annullaInserimento();
     }
     
     public VBox getVBox() {
@@ -114,9 +121,23 @@ public class NuovaSpesa {
             descrizioneSpesa.getText(),
             dataSpesa.getValue()== null ? null : dataSpesa.getValue().toString()
         };
-        for(int i = 0; i < 4; i++)
-            System.out.println("NuovaSpesa.getSpesa()"+l[i]);
         return l;
+    }
+    
+    private void setStyle() {
+        String font = parametriConfig.getParametriStilistici().getFont();
+        String dimensione = String.valueOf(parametriConfig.getParametriStilistici().getDimensioneFont().getDimensione());
+        String unita = parametriConfig.getParametriStilistici().getDimensioneFont().getUnita();
+        titolo.setStyle("-fx-font-family: " + font + "; -fx-font-size: " + dimensione + unita);
+        hboxInserimento.setStyle("-fx-border-width: 2px; -fx-border-color: #5592f4; -fx-spacing:10; -fx-border-radius: 5px; ");
+        hboxInserimento.setMinSize(50, 55);
+        btnAnnulla.setStyle("-fx-color: #d13e3e");
+        btnSalva.setStyle("-fx-color: #3a6cb7");
+        hboxBtn.setAlignment(Pos.CENTER);
+        hboxBtn.setSpacing(10);
+        hboxInserimento.setAlignment(Pos.CENTER);
+        vboxprincipale.setStyle("-fx-spacing:10;");
+
     }
     
 }

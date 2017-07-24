@@ -1,19 +1,7 @@
 
 import java.io.*;
-import java.nio.file.Files;
-import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author salvik
- */
+
 public class CacheSpesaNonSalvata {
     
     private static File fileCacheSpesa;
@@ -40,7 +28,6 @@ public class CacheSpesaNonSalvata {
             ObjectInputStream oin = new ObjectInputStream(readerFile);) {
             for(int i = 0; i < 4; i++)
                 s[i] = (String)oin.readObject();
-            System.out.println(s);
         } catch (IOException | ClassNotFoundException ex) {
             System.err.println("Impossibile prelevare!");
         }

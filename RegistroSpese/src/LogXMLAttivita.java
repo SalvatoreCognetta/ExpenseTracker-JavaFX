@@ -1,4 +1,5 @@
 import com.thoughtworks.xstream.*;
+import com.thoughtworks.xstream.converters.basic.*;
 import java.net.*;
 import java.io.*;
 
@@ -7,28 +8,22 @@ import java.io.*;
  */
 public class LogXMLAttivita {
 
-    private Socket sc;
-    private DataOutputStream dout;
     private String indirizzoIPServer;
     private int portaServer;
 
     public LogXMLAttivita (GestoreParametriConfigurazioneXML gestoreParametri) {
         ParametriConfigurazione p = gestoreParametri.getParametri();
-        this.indirizzoIPServer = p.getIndirizzoIpSrvr();
-        this.portaServer = p.getPortaServer();
-        try {
-            sc = new Socket(indirizzoIPServer, portaServer);
-            dout = new DataOutputStream(sc.getOutputStream());
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
+        this.indirizzoIPServer = p.getParametriServer().getIndirizzoIpSrvr();
+        this.portaServer = p.getParametriServer().getPortaServer();
     }
 
     public void inviaMessaggioLogEvento(TipoLog evento) {
-        MessaggioDiLog m = new MessaggioDiLog(evento);
-        System.out.println(serializzaXML(m));
-        try {
-            dout.writeUTF(serializzaXML(m));
+        
+        try(Socket s = new Socket(indirizzoIPServer, portaServer);
+            DataOutputStream dout = new DataOutputStream(s.getOutputStream());) {
+            MessaggioDiLog m = new MessaggioDiLog(evento, InetAddress.getLocalHost().getHostAddress());
+
+            dout.writeUTF("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"+serializzaXML(m)+"\n\n");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
@@ -36,6 +31,8 @@ public class LogXMLAttivita {
     
     private String serializzaXML(MessaggioDiLog m) {
         XStream xs = new XStream();
+        xs.useAttributeFor(MessaggioDiLog.class, "evento");
+        xs.registerConverter(new DateConverter("yyyy-MM-dd", null));
         String x = xs.toXML(m);
         return x;
     }

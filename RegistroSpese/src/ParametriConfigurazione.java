@@ -1,58 +1,26 @@
-import java.io.Serializable;
+import java.io.*;
 
-public class ParametriConfigurazione implements Serializable{
+public class ParametriConfigurazione implements Serializable {
     
-    private String indirizzoIPServerDiLog;
-    private int portaServerDiLog;
-    private String indirizzoIPDatabase;    
-    private int portaDatabase;
-    private String nomeDatabase;
-    private String usernameDatabase;
-    private String passwordDatabase;
-    private String unita;
-    private String font;
-    private int dimensione;
-    private int maxRecord;
+    private ParametriServer parametriServer;
+    private ParametriDataBase parametriDatabase;
+    private ParametriStilistici parametriStilistici;    
     
-    public ParametriConfigurazione(String indIPSrvr, int portaSrvr, String indIPDb, String nomeDb, int portaDb, String username, String pwd,String unita, String font, int dim, int numRecord) {
-        this.indirizzoIPDatabase = indIPSrvr;
-        this.portaServerDiLog = portaSrvr;
-        this.indirizzoIPDatabase = indIPDb;
-        this.portaDatabase = portaDb;
-        this.nomeDatabase = nomeDb;
-        this.usernameDatabase = username;
-        this.passwordDatabase = pwd;
-        this.unita = unita;
-        this.font = font;
-        this.dimensione = dim;
-        this.maxRecord = numRecord;
+    public ParametriConfigurazione(ParametriServer paramSrvr, ParametriDataBase paramDb, ParametriStilistici stilistici) {
+        this.parametriServer = paramSrvr;
+        this.parametriDatabase = paramDb;
+        this.parametriStilistici = stilistici;
     }
     
-    public String getIndirizzoIpSrvr() {
-        return indirizzoIPServerDiLog;
+    public ParametriServer getParametriServer() {
+        return parametriServer;
     }
     
-    public int getPortaServer() {
-        return portaServerDiLog;
+    public ParametriDataBase getParametriDatabase() {
+        return parametriDatabase;
     }
     
-    public String getIndirizzoIpDb() {
-        return indirizzoIPDatabase;
-    }
-    
-    public int getPortaDb() {
-        return portaDatabase;
-    }
-    
-    public String getNomeDb() {
-        return nomeDatabase;
-    }
-    
-    public String getUsernameDb() {
-        return usernameDatabase;
-    }
-    
-    public String getPwdDb() {
-        return passwordDatabase;
+    public ParametriStilistici getParametriStilistici() {
+        return parametriStilistici;
     }
 }

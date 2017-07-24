@@ -1,7 +1,7 @@
 import java.sql.*;
-import java.time.LocalDate;
+import java.time.*;
 import java.util.*;
-import javafx.scene.chart.PieChart;
+import javafx.scene.chart.*;
 
 /**
  * DataBaseSpese: classe che realizza il back-end e tutte le operazioni da effettuare sulla base di dati.
@@ -19,19 +19,20 @@ public class DataBaseSpese {
     private static String passwordDatabase;
 
     
-    public DataBaseSpese (GestoreParametriConfigurazioneXML gestoreParam) {
-        ParametriConfigurazione p = gestoreParam.getParametri();
-        String indirizzoIP = p.getIndirizzoIpDb();
-        int porta = p.getPortaDb();
-        String nomeDB = p.getNomeDb();
-        usernameDatabase = p.getUsernameDb();
-        passwordDatabase = p.getPwdDb();
+    public DataBaseSpese (ParametriConfigurazione p) {
+        String indirizzoIP = p.getParametriDatabase().getIndirizzoIpDb();
+        int porta = p.getParametriDatabase().getPortaDb();
+        String nomeDB = p.getParametriDatabase().getNomeDb();
+        usernameDatabase = p.getParametriDatabase().getUsernameDb();
+        passwordDatabase = p.getParametriDatabase().getPwdDb();
         url = "jdbc:mysql://"+indirizzoIP+":"+porta+"/"+nomeDB;
+        String numRow = String.valueOf(p.getParametriStilistici().getMaxRecord());
+        
         try {
             connessioneADatabase = DriverManager.getConnection(url, usernameDatabase, passwordDatabase);
-            statementGetSpeseInserite = connessioneADatabase.prepareStatement("SELECT * FROM spesa");
+            statementGetSpeseInserite = connessioneADatabase.prepareStatement("SELECT * FROM spesa ORDER BY data DESC LIMIT "+numRow);
             statementGetCategorie = connessioneADatabase.prepareStatement("SELECT nome FROM categoria");
-            statementGetStorico = connessioneADatabase.prepareStatement("SELECT SUM(costo) as costo, categoria FROM spesa WHERE data>? AND data<? GROUP BY categoria");     
+            statementGetStorico = connessioneADatabase.prepareStatement("SELECT SUM(costo) as costo, categoria FROM spesa WHERE data>=? AND data<=? GROUP BY categoria");     
             statementAggiungiSpesa = connessioneADatabase.prepareStatement("INSERT INTO spesa VALUES (?,?,?,?,?)");
             statementEliminaSpesa = connessioneADatabase.prepareStatement("DELETE FROM spesa WHERE idSpesa = ?");
         } catch(SQLException e) {
@@ -69,16 +70,11 @@ public class DataBaseSpese {
             statementGetStorico.setDate(2, java.sql.Date.valueOf(dataFine));
             ResultSet rs = statementGetStorico.executeQuery();
             
-            //adding data on piechart data
-
-//                data.add(new PieChart.Data(rs.getString(2),rs.getDouble(1)));
-
             while(rs.next())
                 listaStorico.add(new PieChart.Data(rs.getString("categoria"), rs.getDouble("costo")));
             
-
         } catch(SQLException e) {
-            
+            e.printStackTrace();
         }
         return listaStorico;
     }
