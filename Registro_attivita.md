@@ -63,5 +63,8 @@ Settato il bordo, spacing, colore e font per le classi NuovaSpesa,TabellaUltimeS
 ## 24 Luglio 2017 (2.91h)
 Analisi: eliminato il colore di background dal file di configurazione; spostate le label dataInizio e dataFine nel mockup. Progettazione: modificato da String a LocalDate il tipo del parametro data nel metodo aggiungiSpesa di DatabaseSpese, ed anche il parametro data in ottieniSpesaPerData da Data a LocalDate; aggiunti tra gli attributi gli statement per ottenere le spese inserite, categorie, storico spese, aggiungi ed elimina spesa. Aggiunte label data inzio e data fine a RegistroPerCategoria.
 
-## 24 Luglio 2017
-Eliminata la classe StoricoSpesa. Aggiunta la classe ServerLogXMLAttivita.Aggiornata la documentazione con le nuove classi. La classe ParametriConfigurazione è scomposta nelle classi ParametriServer, ParametriDataBase, ParametriStilistici, DimensioneFont, in modo da definire meglio elementi ed attributi dello schema.Sviluppo: creazione della classe ServerLogXMLAttivita con metodo validaRigaDiLog. Creazione dei metodi Parametri* e DimensioneFont.Modifica dello xsd per validare il file di config.
+## 24 Luglio 2017 (2.37h)
+Eliminata la classe StoricoSpesa. Aggiunta la classe ServerLogXMLAttivita. Aggiornata la documentazione con le nuove classi. La classe ParametriConfigurazione è scomposta nelle classi ParametriServer, ParametriDataBase, ParametriStilistici, DimensioneFont, in modo da definire meglio elementi ed attributi dello schema.Sviluppo: creazione della classe ServerLogXMLAttivita con metodo validaRigaDiLog. Creazione dei metodi Parametri* e DimensioneFont.Modifica dello xsd per validare il file di config.
+
+## 25 Luglio
+Utilizzate annotazioni per un elemento che contiene un solo attributo (https://tinyurl.com/yc3qoght). Creato il manuale d'uso, descrivendo i casi di test per l'interfaccia grafica e il server di log. Creato lo script .bat per avviare da terminale l'applicativo. Aggiunte le note e la documentazione a tutte le classi dell'applicativo.
