@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="AVVIO_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>00:54:17</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_TABELLA_ULTIME_SPESE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>01:05:24</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_TABELLA_ULTIME_SPESE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>01:05:26</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_PULSANTE_ANNULLA">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>01:05:29</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_PULSANTE_SALVA">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>01:05:31</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_PULSANTE_AGGIORNA">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>01:05:33</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="TERMINE_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>01:05:39</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="AVVIO_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>01:15:49</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="TERMINE_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>02:08:28</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="AVVIO_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>03:27:35</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_TABELLA_ULTIME_SPESE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>03:27:42</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_PULSANTE_AGGIORNA">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>03:27:49</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="TERMINE_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>03:27:51</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_TABELLA_ULTIME_SPESE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:01:39</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_TABELLA_ULTIME_SPESE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:01:54</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_PULSANTE_ANNULLA">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:02:35</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="TERMINE_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:02:37</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="AVVIO_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:08:31</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_TABELLA_ULTIME_SPESE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:08:36</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="TERMINE_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:08:37</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="AVVIO_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:20:50</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="TERMINE_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:20:56</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="AVVIO_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:21:41</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="TERMINE_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:21:46</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="AVVIO_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:23:33</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_PULSANTE_ANNULLA">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:23:38</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_PULSANTE_SALVA">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:23:42</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="TERMINE_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:23:45</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="AVVIO_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:25:43</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="TERMINE_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:25:48</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="AVVIO_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:31:50</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_TABELLA_ULTIME_SPESE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:31:55</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_PULSANTE_ANNULLA">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:31:57</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_PULSANTE_SALVA">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:31:58</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_PULSANTE_ELIMINA">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:32:00</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="CLICK_PULSANTE_AGGIORNA">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:32:04</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="TERMINE_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:32:07</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="AVVIO_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:36:46</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="TERMINE_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:36:50</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="AVVIO_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:39:03</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="TERMINE_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:44:29</ora>
+</MessaggioDiLog>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<MessaggioDiLog evento="AVVIO_APPLICAZIONE">
+  <indirizzoIP>192.168.1.102</indirizzoIP>
+  <nomeApplicazione>Registro Spese</nomeApplicazione>
+  <data>2017-07-24</data>
+  <ora>04:45:07</ora>
+</MessaggioDiLog>
+
